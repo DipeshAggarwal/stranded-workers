@@ -44,7 +44,7 @@ body {
 }
 
 .ui.label {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 tr:nth-child(even) {
@@ -148,6 +148,10 @@ td:nth-child(even) {
 
   .mobile-hide {
     display: none!important;
+  }
+
+  .ui.label {
+    font-size: 1.1rem;
   }
 }
 

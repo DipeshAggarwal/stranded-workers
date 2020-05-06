@@ -88,8 +88,8 @@ function showData() {
     return;
   }
 
-  $("#from-detail>.header")[0].innerText = "From:" + from;
-  $("#to-detail>.header")[0].innerText = "To:" + to;
+  $("#from-detail>.header")[0].innerText = "From: " + from;
+  $("#to-detail>.header")[0].innerText = "To: " + to;
 
   var fromFillText = "";
   var toFillText = "";
