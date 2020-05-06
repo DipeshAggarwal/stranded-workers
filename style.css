@@ -1,0 +1,90 @@
+body {
+  background: linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%);
+  /*background: linear-gradient(90deg, #030321 0%, #000851 100%);*/
+}
+
+.sub-heading {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size:24px;
+  font-weight: normal;
+  color: #222;
+  text-align: center;
+  margin: auto;
+  padding-bottom: 5%;
+}
+
+/* Taken from https://codepen.io/ClaireLarsen/pen/XmVyVX*/
+@import url(https://fonts.googleapis.com/css?family=Montserrat);
+
+/*html, body{
+  height: 100%;
+  font-weight: 800;
+}
+
+body{
+  background: #030321;
+  font-family: Arial;
+}*/
+
+svg {
+  display: block;
+  font: 10.5em 'Montserrat';
+  width: 10em;
+  height: 2em;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 10% 25%;
+  stroke-width: 8px;
+  stroke-dashoffset: 0%;
+  animation: stroke-offset 5.5s infinite linear;
+  font-weight: 600;
+}
+
+.text-copy:nth-child(1){
+  stroke: #4D163D;
+  animation-delay: -1;
+}
+
+.text-copy:nth-child(2){
+  stroke: #840037;
+  animation-delay: -2s;
+}
+
+.text-copy:nth-child(3){
+  stroke: #BD0034;
+  animation-delay: -3s;
+}
+
+.text-copy:nth-child(4){
+  stroke: #BD0034;
+  animation-delay: -4s;
+}
+
+.text-copy:nth-child(5){
+  stroke: #FDB731;
+  animation-delay: -5s;
+}
+
+@keyframes stroke-offset{
+  100% {stroke-dashoffset: -35%;}
+}
+
+
+@media (max-width: 765px) {
+  svg {
+    display: block;
+    font: 7em 'Montserrat';
+    width: 3.6em;
+    height: 2em;
+    margin: 0 auto;
+  }
+
+  .text-copy {
+    stroke-width: 6px;
+  }
+}
