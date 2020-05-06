@@ -96,24 +96,16 @@ function showData() {
   for (var i=0; i < columnNames.length; i++){
     if (typeof fromData[to][i] === "string" && fromData[from][i].startsWith("http") === true) {
       var _fromText = '<span><a href=' + fromData[from][i] + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
-    } else if (columnNames[i].includes("Helpline No.") === true) {
-      if (typeof fromData[to][i] === "string") {
-        var _fromText = fromData[from][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
-      } else {
-        var _fromText = fromData[from][i];
-      }
+    } else if (typeof fromData[to][i] === "string" && columnNames[i].includes("Helpline No.") === true) {
+      var _fromText = fromData[from][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
     } else {
       var _fromText = fromData[from][i];
     }
     if (typeof toData[to][i] === "string" && toData[from][i].startsWith("http") === true) {
       var _toText = '<span><a href=' + toData[to][i] + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
-    } else if (columnNames[i].includes("Helpline No.") === true) {
-      if (typeof toData[to][i] === "string") {
-        var _toText = toData[to][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
-      } else {
-        var _toText = toData[to][i];
-      }
-    }  else {
+    } else if (typeof toData[to][i] === "string" && columnNames[i].includes("Helpline No.") === true) {
+      var _toText = toData[to][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+    } else {
       var _toText = toData[to][i];
     }
     fromFillText = fromFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _fromText + "</td></tr>";
