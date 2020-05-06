@@ -55,10 +55,6 @@ td:nth-child(odd) {
   padding-left: 10px!important;
 }
 
-td:nth-child(even) {
-  width: 100%;
-}
-
 @-webkit-keyframes AnimationName {
   0%{background-position:0% 50%}
   50%{background-position:100% 50%}
