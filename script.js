@@ -101,10 +101,14 @@ function showData() {
     } else {
       var _fromText = fromData[from][i];
     }
-    if (fromData[from][i].startsWith("http") === true) {
+    if (toData[from][i].startsWith("http") === true) {
       var _toText = '<span><a href=' + toData[to][i] + ' style="display:block ruby;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
     } else if (columnNames[i].includes("Helpline No.") === true) {
-      var _toText = toData[to][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+      if (typeof toData[to][i] === "string") {
+        var _toText = toData[to][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+      } else {
+        var _toText = toData[to][i];
+      }
     }  else {
       var _toText = toData[to][i];
     }
