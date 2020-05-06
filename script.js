@@ -94,19 +94,18 @@ function showData() {
   var fromFillText = "";
   var toFillText = "";
   for (var i=0; i < columnNames.length; i++){
-    if (typeof fromData[to][i] === "string" && fromData[from][i].startsWith("http") === true) {
-      var _fromText = '<span><a href=' + fromData[from][i] + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
-    } else if (typeof fromData[to][i] === "string" && columnNames[i].includes("Helpline No.") === true) {
-      var _fromText = fromData[from][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
-    } else {
-      var _fromText = fromData[from][i];
+    var _fromText = fromData[from][i].toString();
+    var _toText = toData[to][i].toString();
+
+    if (_fromText.startsWith("http") === true) {
+      _fromText = '<span><a href=' + _fromText + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
+    } else if (columnNames[i].includes("Helpline No.") === true) {
+      _fromText = _fromText.replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
     }
-    if (typeof toData[to][i] === "string" && toData[from][i].startsWith("http") === true) {
-      var _toText = '<span><a href=' + toData[to][i] + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
-    } else if (typeof toData[to][i] === "string" && columnNames[i].includes("Helpline No.") === true) {
-      var _toText = toData[to][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
-    } else {
-      var _toText = toData[to][i];
+    if (_toText.startsWith("http") === true) {
+      _toText = '<span><a href=' + _toText + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
+    } else if (columnNames[i].includes("Helpline No.") === true) {
+      var _toText = _toText.replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
     }
     fromFillText = fromFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _fromText + "</td></tr>";
     toFillText = toFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _toText + "</td></tr>";
