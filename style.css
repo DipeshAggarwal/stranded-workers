@@ -32,7 +32,7 @@ td:nth-child(even) {
   color: #222;
   text-align: center;
   margin: auto;
-  padding-bottom: 5%;
+  padding-bottom: 6%;
 }
 
 /* Taken from https://codepen.io/ClaireLarsen/pen/XmVyVX*/
@@ -126,7 +126,7 @@ svg {
     display: block;
     font: 7em 'Montserrat';
     width: 3.6em;
-    height: 2em;
+    height: 1.6em;
     margin: 0 auto;
   }
 
@@ -145,5 +145,9 @@ svg {
 
   .text-copy {
     stroke-width: 6px;
+  }
+
+  .mobile-hide {
+    display: none !important;
   }
 }
