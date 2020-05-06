@@ -88,13 +88,13 @@ function showData() {
     return;
   }
 
-  $("#from-detail>.header")[0].innerText = "Things to do before leaving " + from;
-  $("#to-detail>.header")[0].innerText = "Things to do before arriving in " + to;
+  $("#from-detail>.header")[0].innerText = "From:" + from;
+  $("#to-detail>.header")[0].innerText = "To:" + to;
 
   var fromFillText = "";
   var toFillText = "";
   for (var i=0; i < columnNames.length; i++){
-    if (fromData[from][i].startsWith("http") === true) {
+    if (typeof fromData[to][i] === "string" && fromData[from][i].startsWith("http") === true) {
       var _fromText = '<span><a href=' + fromData[from][i] + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
     } else if (columnNames[i].includes("Helpline No.") === true) {
       if (typeof fromData[to][i] === "string") {
@@ -105,7 +105,7 @@ function showData() {
     } else {
       var _fromText = fromData[from][i];
     }
-    if (toData[from][i].startsWith("http") === true) {
+    if (typeof toData[to][i] === "string" && toData[from][i].startsWith("http") === true) {
       var _toText = '<span><a href=' + toData[to][i] + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
     } else if (columnNames[i].includes("Helpline No.") === true) {
       if (typeof toData[to][i] === "string") {

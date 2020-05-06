@@ -43,6 +43,10 @@ body {
   padding-left: 10px;
 }
 
+.ui.label {
+  font-size: 1rem;
+}
+
 tr:nth-child(even) {
   background-color: #ededed;
 }
