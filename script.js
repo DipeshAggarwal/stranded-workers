@@ -27,6 +27,16 @@ $('.ui.dropdown')
     }
   });
 
+$('.ui.modal')
+  .modal({
+    blurring: true
+  });
+
+$('.ui.basic.modal')
+  .modal({
+    blurring: true
+  });
+
   $("#find-btn").click(function() {
     if (isDataDownloaded === true) {
       $('#find-btn').removeClass("loading");
@@ -44,9 +54,9 @@ $(document).ready(function () {
     .done(function(data) {
       data.websiteData.reduce(function(s, x) {
         if (x[0] === "To") {
-          toData[x[1].toLowerCase()] = x.splice(2);
+          toData[x[1]] = x.splice(2);
         } else if (x[0] === "From") {
-          fromData[x[1].toLowerCase()] = x.splice(2);
+          fromData[x[1]] = x.splice(2);
         }
       });
       isDataDownloaded = true;
@@ -58,13 +68,12 @@ $(document).ready(function () {
 });
 
 function showData() {
-  var from = $("#from-dropdown.dropdown").dropdown("get value");
-  var to = $("#to-dropdown.dropdown").dropdown("get value");
+  var from = $("#from-dropdown.dropdown").dropdown("get text");
+  var to = $("#to-dropdown.dropdown").dropdown("get text");
 
-  console.log(fromData[from].every( function(e) {
-    return e === "";
-  }));
-  console.log(toData[to].every( function(e) {
-    return e === "";
-  }));
+  if (fromData[from].every(function(e) {return e === ""}) || toData[to].every(function(e) {return e === ""})) {
+    $(".ui.basic>.content")[0].innerText = $(".ui.basic>.content")[0].innerText.replace("##FROM", from).replace("##TO", to);
+    $(".ui.basic.modal")
+      .modal("show");
+  }
 }
