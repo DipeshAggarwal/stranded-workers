@@ -34,9 +34,9 @@ body{
 
 svg {
   display: block;
-  font: 10.5em 'Montserrat';
-  width: 10em;
-  height: 2em;
+  font: 15em 'Montserrat';
+  width: 3.5em;
+  height: 1.5em;
   margin: 0 auto;
   text-align: center;
 }
@@ -45,7 +45,7 @@ svg {
   fill: none;
   stroke: white;
   stroke-dasharray: 10% 25%;
-  stroke-width: 8px;
+  stroke-width: 10px;
   stroke-dashoffset: 0%;
   animation: stroke-offset 5.5s infinite linear;
   font-weight: 600;
