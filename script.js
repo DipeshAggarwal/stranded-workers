@@ -27,10 +27,20 @@ $('.ui.dropdown')
     }
   });
 
-$('.ui.modal')
+$('.coupled.modal')
   .modal({
+    allowMultiple: false,
     blurring: true
-  });
+  })
+;
+// attach events to buttons
+$('.second.modal')
+  .modal('attach events', '.first.modal .button.next', 'show refresh')
+;
+// show first now
+$('.first.modal')
+  .modal('attach events', '.second.modal .button.prev', 'show refresh')
+;
 
 $('.ui.basic.modal')
   .modal({
@@ -75,5 +85,19 @@ function showData() {
     $(".ui.basic>.content")[0].innerText = $(".ui.basic>.content")[0].innerText.replace("##FROM", from).replace("##TO", to);
     $(".ui.basic.modal")
       .modal("show");
+    return;
   }
+
+  $("#from-detail>.header")[0].innerText = "Things to do before leaving " + from;
+  $("#to-detail>.header")[0].innerText = "Things to do before arriving in " + to;
+  $("#from-detail>.actions>.ui.black").click(function(e, t) {
+    $("#from-detail.modal")
+      .modal("hide");
+  })
+  $("#to-detail>.actions>.ui.positive").click(function(e, t) {
+    $("#to-detail.modal")
+      .modal("hide");
+  })
+  $("#from-detail.modal")
+    .modal("show");
 }
