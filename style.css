@@ -9,6 +9,22 @@ body {
   animation: AnimationName 30s ease infinite;
 }
 
+tr {
+  white-space:pre;
+}
+
+tr:nth-child(even) {
+  background-color: #ededed;
+}
+
+td:nth-child(odd) {
+  padding-left: 10px!important;
+}
+
+td:nth-child(even) {
+  width: 100%;
+}
+
 .sub-heading {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size:24px;
@@ -104,6 +120,20 @@ svg {
     width: 3.6em;
     height: 2em;
     margin: 0 auto;
+  }
+
+  tr {
+    font-size: 1.25em;
+    white-space: unset;
+    word-break: normal;
+  }
+
+  td:nth-child(odd) {
+    padding-left: 0;
+  }
+
+  td:nth-child(even) {
+    width: 0;
   }
 
   .text-copy {

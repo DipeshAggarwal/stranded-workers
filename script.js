@@ -1,5 +1,6 @@
 var isDataDownloaded = false;
 var isButtonClicked = false;
+var columnNames = [];
 var fromData = {};
 var toData = {};
 
@@ -29,18 +30,16 @@ $('.ui.dropdown')
 
 $('.coupled.modal')
   .modal({
-    allowMultiple: false,
-    blurring: true
-  })
-;
+    allowMultiple: false
+  });
+
 // attach events to buttons
 $('.second.modal')
-  .modal('attach events', '.first.modal .button.next', 'show refresh')
-;
+  .modal('attach events', '.first.modal .button.next', 'show refresh');
+
 // show first now
 $('.first.modal')
-  .modal('attach events', '.second.modal .button.prev', 'show refresh')
-;
+  .modal('attach events', '.second.modal .button.prev', 'show refresh');
 
 $('.ui.basic.modal')
   .modal({
@@ -62,6 +61,7 @@ $(document).ready(function () {
     url: "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan",
   })
     .done(function(data) {
+      columnNames = data.websiteData[0].splice(2);
       data.websiteData.reduce(function(s, x) {
         if (x[0] === "To") {
           toData[x[1]] = x.splice(2);
@@ -90,6 +90,30 @@ function showData() {
 
   $("#from-detail>.header")[0].innerText = "Things to do before leaving " + from;
   $("#to-detail>.header")[0].innerText = "Things to do before arriving in " + to;
+
+  var fromFillText = "";
+  var toFillText = "";
+  for (var i=0; i < columnNames.length; i++){
+    if (fromData[from][i].startsWith("http") === true) {
+      var _fromText = '<span><a href=' + fromData[from][i] + ' style="display:block ruby;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
+    } else if (columnNames[i].includes("Helpline No.") === true) {
+      var _fromText = fromData[from][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+    } else {
+      var _fromText = fromData[from][i];
+    }
+    if (fromData[from][i].startsWith("http") === true) {
+      var _toText = '<span><a href=' + toData[to][i] + ' style="display:block ruby;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
+    } else if (columnNames[i].includes("Helpline No.") === true) {
+      var _toText = toData[to][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+    }  else {
+      var _toText = toData[to][i];
+    }
+    fromFillText = fromFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _fromText + "</td></tr>";
+    toFillText = toFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _toText + "</td></tr>";
+  }
+  $("#from-detail>.content>.description>table>tbody")[0].innerHTML = fromFillText;
+  $("#to-detail>.content>.description>table>tbody")[0].innerHTML = toFillText;
+
   $("#from-detail>.actions>.ui.black").click(function(e, t) {
     $("#from-detail.modal")
       .modal("hide");
