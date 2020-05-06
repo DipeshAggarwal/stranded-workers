@@ -43,10 +43,6 @@ body {
   padding-left: 10px;
 }
 
-tr {
-  white-space:pre;
-}
-
 tr:nth-child(even) {
   background-color: #ededed;
 }
@@ -146,12 +142,8 @@ td:nth-child(even) {
     width: 0;
   }
 
-  .text-copy {
-    stroke-width: 6px;
-  }
-
   .mobile-hide {
-    display: none !important;
+    display: none!important;
   }
 }
 
