@@ -27,7 +27,7 @@ td:nth-child(even) {
 
 .sub-heading {
   font-family: Georgia, "Times New Roman", Times, serif;
-  font-size:24px;
+  font-size: 24px;
   font-weight: normal;
   color: #222;
   text-align: center;
@@ -52,7 +52,7 @@ svg {
   display: block;
   font: 15em 'Montserrat';
   width: 3.5em;
-  height: 1.5em;
+  height: 1.3em;
   margin: 0 auto;
   text-align: center;
 }
@@ -112,6 +112,14 @@ svg {
     100%{background-position:0% 50%}
 }
 
+@media(max-width: 1337px) {
+  svg {
+    height: 1.25em;
+  }
+  .sub-heading {
+    padding-bottom: 3%; 
+  }
+}
 
 @media (max-width: 765px) {
   svg {
