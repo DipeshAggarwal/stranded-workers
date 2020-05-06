@@ -9,6 +9,40 @@ body {
   animation: AnimationName 30s ease infinite;
 }
 
+.heading {
+  margin: auto;
+  text-align: center;
+  color: #001f3f;
+  font-size: 5vw;
+  font-variant: small-caps;
+  line-height: 1em;
+  padding-top: 2%;
+}
+
+.sub-heading {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-variant: small-caps;
+  font-size: 1.5vw;
+  font-weight: normal;
+  color: #333;
+  text-align: center;
+  margin: auto;
+  padding-right: 10vw;
+  padding-left: 10vw;
+  padding-bottom: 20vh;
+  line-height: 1.2em;
+}
+
+.footer-line {
+  position: absolute;
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  bottom: 5px;
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
 tr {
   white-space:pre;
 }
@@ -23,77 +57,6 @@ td:nth-child(odd) {
 
 td:nth-child(even) {
   width: 100%;
-}
-
-.sub-heading {
-  font-family: Georgia, "Times New Roman", Times, serif;
-  font-size: 24px;
-  font-weight: normal;
-  color: #222;
-  text-align: center;
-  margin: auto;
-  padding-bottom: 6%;
-}
-
-/* Taken from https://codepen.io/ClaireLarsen/pen/XmVyVX*/
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-
-/*html, body{
-  height: 100%;
-  font-weight: 800;
-}
-
-body{
-  background: #030321;
-  font-family: Arial;
-}*/
-
-svg {
-  display: block;
-  font: 15em 'Montserrat';
-  width: 3.5em;
-  height: 1.3em;
-  margin: 0 auto;
-  text-align: center;
-}
-
-.text-copy {
-  fill: none;
-  stroke: white;
-  stroke-dasharray: 10% 25%;
-  stroke-width: 10px;
-  stroke-dashoffset: 0%;
-  animation: stroke-offset 5.5s infinite linear;
-  font-weight: 600;
-}
-
-.text-copy:nth-child(1){
-  stroke: #4D163D;
-  animation-delay: -1;
-}
-
-.text-copy:nth-child(2){
-  stroke: #840037;
-  animation-delay: -2s;
-}
-
-.text-copy:nth-child(3){
-  stroke: #BD0034;
-  animation-delay: -3s;
-}
-
-.text-copy:nth-child(4){
-  stroke: #BD0034;
-  animation-delay: -4s;
-}
-
-.text-copy:nth-child(5){
-  stroke: #FDB731;
-  animation-delay: -5s;
-}
-
-@keyframes stroke-offset{
-  100% {stroke-dashoffset: -35%;}
 }
 
 @-webkit-keyframes AnimationName {
@@ -112,22 +75,62 @@ svg {
     100%{background-position:0% 50%}
 }
 
-@media(max-width: 1337px) {
-  svg {
-    height: 1.25em;
+@media (max-width: 1680) {
+  .heading {
+    font-size: 1.0em;
+    font-variant: small-caps;
+    line-height: 1.2em;
+    padding-bottom: 2%;
+    padding-top: 2%;
   }
+}
+
+@media (max-width: 1337px) and (orientation: portrait) {
+  .heading {
+    font-size: 5.0em;
+    font-variant: small-caps;
+    line-height: 1.2em;
+    padding-bottom: 2%;
+    padding-top: 2%;
+  }
+
+  .only-mobile-text {
+    font-size: 1.47em;
+  }
+
   .sub-heading {
-    padding-bottom: 3%; 
+    font-size: 22px;
+    padding-right: 7%;
+    padding-left: 7%;
+    padding-bottom: 23%;
+    line-height: 1.1em;
+  }
+}
+
+@media (max-width: 1332px) and (orientation: landscape) {
+  .heading {
+    font-size: 4.0em;
+    font-variant: small-caps;
+    line-height: 1.2em;
+    padding-bottom: 2%;
+    padding-top: 2%;
+  }
+
+  .sub-heading {
+    font-size: 24px;
+    padding-right: 7%;
+    padding-left: 7%;
+    padding-bottom: 10%;
+    line-height: 1.1em;
   }
 }
 
 @media (max-width: 765px) {
-  svg {
-    display: block;
-    font: 7em 'Montserrat';
-    width: 3.6em;
-    height: 1.6em;
-    margin: 0 auto;
+  .footer-line {
+    padding-right: 18px;
+    padding-left: 18px;
+    text-align: justify;
+    text-align-last: center;
   }
 
   tr {
@@ -149,5 +152,71 @@ svg {
 
   .mobile-hide {
     display: none !important;
+  }
+}
+
+@media (max-width: 765px) and (orientation: portrait) {
+  .heading {
+    font-size: 2.65em;
+    font-variant: small-caps;
+    line-height: 1.2em;
+    padding-bottom: 5%;
+    padding-top: 2%;
+  }
+
+  .sub-heading {
+    font-size: 17px;
+    padding-right: 4%;
+    padding-left: 4%;
+    padding-bottom: 6%;
+    line-height: 1.1em;
+    text-align: justify;
+    text-align-last: center;
+  }
+
+  .only-mobile-text {
+    font-size: 1.45em;
+  }
+}
+
+@media (max-width: 812px) and (orientation: landscape) {
+  .heading {
+    font-size: 5.5vw;
+    font-variant: small-caps;
+    line-height: 1.1em;
+    padding-top: 2%;
+  }
+
+  .sub-heading {
+    font-size: 17px;
+    padding-right: 8vw;
+    padding-left: 8vw;
+    padding-bottom: 1%;
+    line-height: 1.1em;
+    text-align: justify;
+    text-align-last: center;
+  }
+}
+
+@media (max-width: 765px) and (orientation: landscape) {
+  .heading {
+    font-size: 6vw;
+    font-variant: small-caps;
+    line-height: 1.1em;
+    padding-top: 2%;
+  }
+
+  .sub-heading {
+    font-size: 17px;
+    padding-right: 3vw;
+    padding-left: 3vw;
+    padding-bottom: 1%;
+    line-height: 1.1em;
+    text-align: justify;
+    text-align-last: center;
+  }
+
+  .footer-line {
+    bottom: -35vh;
   }
 }
