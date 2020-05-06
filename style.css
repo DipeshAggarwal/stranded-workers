@@ -38,13 +38,15 @@ body {
   width: 100%;
   margin: auto;
   text-align: center;
-  bottom: 5px;
+  bottom: 2px;
   padding-right: 10px;
   padding-left: 10px;
 }
 
 .ui.label {
   font-size: 1.2rem;
+  background-color: #000000;
+  color: #ffffff;
 }
 
 tr:nth-child(even) {
