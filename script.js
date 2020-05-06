@@ -61,12 +61,12 @@ $(document).ready(function () {
     url: "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan",
   })
     .done(function(data) {
-      columnNames = data.websiteData[0].splice(2);
+      columnNames = data.websiteData[0].splice(3);
       data.websiteData.reduce(function(s, x) {
         if (x[0] === "To") {
-          toData[x[1]] = x.splice(2);
+          toData[x[1]] = x.splice(3);
         } else if (x[0] === "From") {
-          fromData[x[1]] = x.splice(2);
+          fromData[x[1]] = x.splice(3);
         }
       });
       isDataDownloaded = true;
@@ -97,7 +97,11 @@ function showData() {
     if (fromData[from][i].startsWith("http") === true) {
       var _fromText = '<span><a href=' + fromData[from][i] + ' style="display:block ruby;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
     } else if (columnNames[i].includes("Helpline No.") === true) {
-      var _fromText = fromData[from][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+      if (typeof fromData[to][i] === "string") {
+        var _fromText = fromData[from][i].replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+      } else {
+        var _fromText = fromData[from][i];
+      }
     } else {
       var _fromText = fromData[from][i];
     }
