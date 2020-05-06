@@ -176,6 +176,7 @@ td:nth-child(even) {
 
   .only-mobile-text {
     font-size: 1.45em;
+    display: block;
   }
 }
 
