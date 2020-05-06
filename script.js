@@ -10,5 +10,28 @@ $('.ui.dropdown')
       });
 
       return _returnObj;
-    }()
+    }(),
+    onChange: function(value, text, $choice) {
+      var v = $('.ui.dropdown').dropdown('get value');
+
+      if (v.includes("")) {
+        $('#find-btn').addClass("disabled");
+      } else {
+        $('#find-btn').removeClass("disabled");
+      }
+    }
   });
+
+  $("#find-btn").click(function() {
+    alert("button");
+  }); 
+
+$(document).ready(function () {
+  $.ajax({
+    url: "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan",
+  })
+    .done(function(data) {
+      var data = data.websiteData;
+      console.log(data);
+    })
+});
