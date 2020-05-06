@@ -1,3 +1,8 @@
+var isDataDownloaded = false;
+var isButtonClicked = false;
+var fromData = {};
+var toData = {};
+
 $('.ui.dropdown')
   .dropdown({
     placeholder:'Choose State',
@@ -12,7 +17,7 @@ $('.ui.dropdown')
       return _returnObj;
     }(),
     onChange: function(value, text, $choice) {
-      var v = $('.ui.dropdown').dropdown('get value');
+      var v = $(".ui.dropdown").dropdown("get value");
 
       if (v.includes("")) {
         $('#find-btn').addClass("disabled");
@@ -23,15 +28,43 @@ $('.ui.dropdown')
   });
 
   $("#find-btn").click(function() {
-    alert("button");
-  }); 
+    if (isDataDownloaded === true) {
+      $('#find-btn').removeClass("loading");
+      showData();
+    } else {
+      $('#find-btn').addClass("disabled loading");
+      isButtonClicked = true;
+    }
+  });
 
 $(document).ready(function () {
   $.ajax({
     url: "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan",
   })
     .done(function(data) {
-      var data = data.websiteData;
-      console.log(data);
+      data.websiteData.reduce(function(s, x) {
+        if (x[0] === "To") {
+          toData[x[1].toLowerCase()] = x.splice(2);
+        } else if (x[0] === "From") {
+          fromData[x[1].toLowerCase()] = x.splice(2);
+        }
+      });
+      isDataDownloaded = true;
+
+      if (isButtonClicked === true) {
+        showData();
+      }
     })
 });
+
+function showData() {
+  var from = $("#from-dropdown.dropdown").dropdown("get value");
+  var to = $("#to-dropdown.dropdown").dropdown("get value");
+
+  console.log(fromData[from].every( function(e) {
+    return e === "";
+  }));
+  console.log(toData[to].every( function(e) {
+    return e === "";
+  }));
+}
