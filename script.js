@@ -124,3 +124,17 @@ function showData() {
   $("#from-detail.modal")
     .modal("show");
 }
+
+$(window).resize(function() {
+  console.log("resize");
+  var footerTop = $(".footer-line").offset().top;
+  var footerHeight = $(".footer-line").height();
+  var findBtnTop = $("#find-btn").offset().top;
+  
+  if (footerTop < findBtnTop + footerHeight + 40) {
+    var diff = findBtnTop + footerHeight + 40 - footerTop;
+    $(".footer-line").css("bottom", -diff);
+  } else {
+    $(".footer-line").css("bottom", 2);
+  }
+});

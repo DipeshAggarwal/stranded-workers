@@ -113,4 +113,15 @@
 
     <div class="footer-line">Made in collobration with <a href="https://twitter.com/StrandedWorkers" target="_blank">Stranded Workers Action Network (SWAN)</a> and <a href="https://twitter.com/COVIDIndiaTrack/" target="_blank">COVID-19 Government Order Track Team</a>. Website Maintained by <a href="https://github.com/DipeshAggarwal" target="_blank">Dipesh Aggarwal</a></div>
   </body>
+
+  <script>
+    var footerTop = $(".footer-line").offset().top;
+    var footerHeight = $(".footer-line").height();
+    var findBtnTop = $("#find-btn").offset().top;
+
+    if (footerTop < findBtnTop + footerHeight + 30) {
+      var diff = findBtnTop + footerHeight + 30 - footerTop;
+      $(".footer-line").css("bottom", -diff);
+    }
+  </script>
 </html>
