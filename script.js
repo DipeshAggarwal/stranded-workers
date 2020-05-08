@@ -48,9 +48,13 @@ $('.language.dropdown')
         value: 'telugu'
       }
     ],
-    onChange: function(value, text, $choice) {
-      var v = $('.pointing.dropdown').dropdown('get value');
-      //console.log(v);
+    action: function(text, value, element) {
+      var v = $('.language.dropdown').dropdown('get value');
+
+      if (value === "english") {
+        return;
+      }
+      window.open("https://migrants.covid-india.in/translate#" + value);
     },
     ignoreCase: true
   });
@@ -145,12 +149,8 @@ $(document).ready(function () {
     .done(function(data) {
       var _fromString = $("#from-string")[0].innerText;
       var _toString = $("#to-string")[0].innerText;
-      console.log(_fromString, _toString);
       columnNames = data.websiteData[0].splice(3);
       data.websiteData.reduce(function(s, x) {
-        console.log(_fromString, _toString);
-        console.log(x[0]);
-        console.log(_fromString === x[0], _toString === x[0]);
         if (x[0] === _toString || x[0] === "To") {
           toData[x[1]] = x.splice(3);
         } else if (x[0] === _fromString || x[0] === "From") {
