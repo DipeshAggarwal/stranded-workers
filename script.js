@@ -31,6 +31,15 @@ $('.icon.item.dropdown')
     ignoreCase: true
   });
 
+/*$('body')
+  .toast({
+    class: 'success',
+    showIcon: 'copy',
+    message: 'Copied to Clipboard',
+    showProgress: 'bottom',
+    classProgress: 'white'
+  });*/
+
 $('.state.dropdown')
   .dropdown({
     placeholder:'State',
@@ -60,17 +69,17 @@ $('.coupled.modal')
     allowMultiple: false
   });
 
-// attach events to buttons
 $('.second.modal')
   .modal('attach events', '.first.modal .button.next', 'show refresh');
 
-// show first now
 $('.first.modal')
   .modal('attach events', '.second.modal .button.prev', 'show refresh');
 
 $('#disclaimer')
-  .modal('attach events', '.disclaimer-btn', 'show')
-;
+  .modal('attach events', '.disclaimer-btn', 'show');
+
+$('#contact-us')
+  .modal('attach events', '.contact-btn', 'show');
 
 $('.ui.basic.modal')
   .modal({
