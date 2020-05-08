@@ -2,11 +2,6 @@ body {
   background: rgb(227,255,231);
   background: linear-gradient(90deg, rgba(227,255,231,1) 0%, rgba(222,244,242,1) 33%, rgba(222,244,242,1) 66%, rgba(217,231,255,1) 100%);
   /*background: linear-gradient(90deg, #030321 0%, #000851 100%);*/
-  background-size: 400% 400%;
-
-  -webkit-animation: AnimationName 30s ease infinite;
-  -moz-animation: AnimationName 30s ease infinite;
-  animation: AnimationName 30s ease infinite;
 
   display: flex;
   flex-flow: column;
@@ -27,7 +22,13 @@ body {
 
 .pushable.segment{
   margin: 0!important;
-  background: none!important;
+  background: linear-gradient(90deg, rgba(227,255,231,1) 0%, rgba(222,244,242,1) 33%, rgba(222,244,242,1) 66%, rgba(217,231,255,1) 100%);
+  /*background: linear-gradient(90deg, #030321 0%, #000851 100%);*/
+  background-size: 400% 400%;
+
+  -webkit-animation: AnimationName 30s ease infinite;
+  -moz-animation: AnimationName 30s ease infinite;
+  animation: AnimationName 30s ease infinite;
   flex-grow: 1;
 }
 
