@@ -75,7 +75,7 @@ $('.ui.basic.modal')
     blurring: true
   });
 
-  $('find-btn').click(function() {
+  $('#find-btn').click(function() {
     if (isDataDownloaded === true) {
       $('#find-btn').removeClass('loading');
       showData();
@@ -86,10 +86,12 @@ $('.ui.basic.modal')
   });
 
 $(document).ready(function () {
+  console.log("g");
   $.ajax({
     url: 'https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan',
   })
     .done(function(data) {
+      console.log("hey");
       columnNames = data.websiteData[0].splice(3);
       data.websiteData.reduce(function(s, x) {
         if (x[0] === "To") {
