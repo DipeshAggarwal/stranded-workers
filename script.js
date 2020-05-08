@@ -22,37 +22,37 @@ $('.language.dropdown')
       {
         name: 'हिंदी',
         value: 'hindi',
-        selected: (window.location.href.includes("hindi") == false) ? true : false
+        selected: (window.location.href.includes("hindi") == true) ? true : false
       },
       {
         name: 'বাংলা',
         value: 'bengali',
-        selected: (window.location.href.includes("bengali") == false) ? true : false
+        selected: (window.location.href.includes("bengali") == true) ? true : false
       },
       {
         name: 'ಕನ್ನಡ',
         value: 'kannada',
-        selected: (window.location.href.includes("kannada") == false) ? true : false
+        selected: (window.location.href.includes("kannada") == true) ? true : false
       },
       {
         name: 'മലയാളം',
         value: 'malayalam',
-        selected: (window.location.href.includes("malayalam") == false) ? true : false
+        selected: (window.location.href.includes("malayalam") == true) ? true : false
       },
       {
         name: 'मराठी',
         value: 'marathi',
-        selected: (window.location.href.includes("marathi") == false) ? true : false
+        selected: (window.location.href.includes("marathi") == true) ? true : false
       },
       {
         name: 'தமிழ்',
         value: 'tamil',
-        selected: (window.location.href.includes("tamil") == false) ? true : false
+        selected: (window.location.href.includes("tamil") == true) ? true : false
       },
       {
         name: 'తెలుగు',
         value: 'telugu',
-        selected: (window.location.href.includes("telugu") == false) ? true : false
+        selected: (window.location.href.includes("telugu") == true) ? true : false
       }
     ],
     action: function(text, value, element) {
