@@ -1,4 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
+var sub = "migrants";
+var host = "covid-india";
 var isDataDownloaded = false;
 var isButtonClicked = false;
 var autoShowCounter = 0;
@@ -59,9 +61,9 @@ $('.language.dropdown')
       var v = $('.language.dropdown').dropdown('get value');
 
       if (value === "english" && window.location.href.includes("mox") == true) {
-        window.open("https://migrants.covid-india.in/");
+        window.open("https://" + sub + "." + host + "." + "in/");
       }
-      window.open("https://migrants.covid-india.in/translate#" + value);
+      window.open("https://" + sub + "." + host + "." + "in/translate#" + value);
     },
     ignoreCase: true
   });
