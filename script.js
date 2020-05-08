@@ -6,7 +6,7 @@ var toData = {};
 
 $('.ui.sidebar').sidebar({
   context: $('.ui.pushable.segment'),
-  transition: 'overlay'
+  transition: 'push'
 }).sidebar('attach events', '#mobile-item');
 
 $('.icon.item.dropdown')

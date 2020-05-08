@@ -54,119 +54,121 @@
     </div>
 
     <div class="ui pushable segment">
-      <div class="ui sidebar vertical menu">
+      <div class="ui sidebar vertical menu left">
         <a href="https://covid-india.in/" class="item">Return to Main Site</a>
         <a class="item disclaimer-btn">Disclaimer</a>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSfbJIjmhYh8aOiNNXtSEV6Bb6xvFUWRKsXHGKhWrH8PEsPRxw/viewform" class="item">Volunteer With Us</a>
       </div>
 
-      <h1 class="heading">Travel Information <span class="only-mobile-text">for Migrants</span></h1>
+      <div class="pusher">
+        <h1 class="heading">Travel Information <span class="only-mobile-text">for Migrants</span></h1>
 
-      <div class="sub-heading">Information on government orders and announcements on the procedures for the return of stranded migrants to their home states.</div>
+        <div class="sub-heading">Information on government orders and announcements on the procedures for the return of stranded migrants to their home states.</div>
 
-      <div class="ui grid middle aligned stackable" style="height:auto;margin:auto">
-        <div class="one wide column"></div>
-        <div class="seven wide column">
-           <div class="ui pointing below label">
-            From
+        <div class="ui grid middle aligned stackable" style="height:auto;margin:auto">
+          <div class="one wide column"></div>
+          <div class="seven wide column">
+             <div class="ui pointing below label">
+              From
+            </div>
+            <div id="from-dropdown" class="ui state fluid selection search dropdown">
+              <div class="default text"></div>
+              <i class="dropdown icon"></i>
+            </div>
           </div>
-          <div id="from-dropdown" class="ui state fluid selection search dropdown">
-            <div class="default text"></div>
-            <i class="dropdown icon"></i>
+          <div class="seven wide column">
+             <div class="ui pointing below label">
+              To
+            </div>
+            <div id="to-dropdown" class="ui state fluid selection search dropdown">
+              <div class="default text"></div>
+              <i class="dropdown icon"></i>
+            </div>
+          </div>
+          <div class="one wide column mobile-hide"></div>
+          <div class="one wide column"></div>
+          <div class="fourteen wide column">
+            <button id="find-btn" class="ui disabled green big fluid button"><i class="search icon"></i>Find Instructions</button>
+          </div>
+          <div class="one wide column"></div>
+        </div>
+
+        <div class="ui basic modal">
+          <div class="ui icon header">
+            <i class="exclamation circle icon"></i>
+            No Data
+          </div>
+          <div class="content">
+            Right now, we don't have any information on the legalities involved in getting from ##FROM to ##TO. Please check back on a later date.
+          </div>
+          <div class="actions">
+            <div class="ui green ok inverted button">
+              <i class="checkmark icon"></i>
+              Okay
+            </div>
           </div>
         </div>
-        <div class="seven wide column">
-           <div class="ui pointing below label">
-            To
+
+        <div id="from-detail" class="ui modal longer scrolling first coupled">
+          <i class="close icon"></i>
+          <div class="header"></div>
+          <div class="image scrolling content">
+            <div class="description" style="width:100%;">
+              <table class="ui very basic collapsing celled table"><tbody></tbody></table>
+            </div>
           </div>
-          <div id="to-dropdown" class="ui state fluid selection search dropdown">
-            <div class="default text"></div>
-            <i class="dropdown icon"></i>
+          <div class="actions">
+            <div class="ui black deny button">
+              <i class="close icon"></i>
+              Close
+            </div>
+            <div class="ui positive right labeled icon button next">
+              Next Step
+              <i class="checkmark icon"></i>
+            </div>
           </div>
         </div>
-        <div class="one wide column mobile-hide"></div>
-        <div class="one wide column"></div>
-        <div class="fourteen wide column">
-          <button id="find-btn" class="ui disabled green big fluid button"><i class="search icon"></i>Find Instructions</button>
+        <div id="to-detail" class="ui modal longer scrolling second coupled">
+          <i class="close icon"></i>
+          <div class="header"></div>
+          <div class="image scrolling content">
+            <div class="description" style="width:100%;">
+              <table class="ui very basic collapsing celled table"><tbody></tbody></table>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui black deny button prev">
+              <i class="angle left icon"></i>
+              Go back
+            </div>
+            <div class="ui positive right labeled icon button">
+              Finish
+              <i class="checkmark icon"></i>
+            </div>
+          </div>
         </div>
-        <div class="one wide column"></div>
+
+        <div id="disclaimer" class="ui modal">
+          <i class="close icon"></i>
+          <div class="header">
+            Disclaimer
+          </div>
+          <div class="content">
+            <div class="description">
+              <div class="ui header">This web portal only lists the various Government orders/notifications/circulars/notices, issued by various State Govt.’s and Central Govt. issued from time to time in relation to COVID-19 and is hosted here only for purposes of general public awareness, information and research. The web portal does not undertake any responsibility of the correctness or truthfulness of the contents of these govt. orders. Visitors are advised to visit the respective official govt. department to verify the information provided in such orders/notifications/circulars/notices.</div>
+              <p></p>
+            </div>
+          </div>
+          <div class="actions">
+            <div class="ui positive right labeled icon button">
+              Okay
+              <i class="checkmark icon"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="footer-line">Made in collobration with <a href="https://twitter.com/StrandedWorkers" target="_blank">Stranded Workers Action Network (SWAN)</a> and <a href="https://twitter.com/COVIDIndiaTrack/" target="_blank">COVID-19 Government Order Track Team</a>. Website Maintained by <a href="https://github.com/DipeshAggarwal" target="_blank">Dipesh Aggarwal</a></div>
       </div>
-
-      <div class="ui basic modal">
-        <div class="ui icon header">
-          <i class="exclamation circle icon"></i>
-          No Data
-        </div>
-        <div class="content">
-          Right now, we don't have any information on the legalities involved in getting from ##FROM to ##TO. Please check back on a later date.
-        </div>
-        <div class="actions">
-          <div class="ui green ok inverted button">
-            <i class="checkmark icon"></i>
-            Okay
-          </div>
-        </div>
-      </div>
-
-      <div id="from-detail" class="ui modal longer scrolling first coupled">
-        <i class="close icon"></i>
-        <div class="header"></div>
-        <div class="image scrolling content">
-          <div class="description" style="width:100%;">
-            <table class="ui very basic collapsing celled table"><tbody></tbody></table>
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui black deny button">
-            <i class="close icon"></i>
-            Close
-          </div>
-          <div class="ui positive right labeled icon button next">
-            Next Step
-            <i class="checkmark icon"></i>
-          </div>
-        </div>
-      </div>
-      <div id="to-detail" class="ui modal longer scrolling second coupled">
-        <i class="close icon"></i>
-        <div class="header"></div>
-        <div class="image scrolling content">
-          <div class="description" style="width:100%;">
-            <table class="ui very basic collapsing celled table"><tbody></tbody></table>
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui black deny button prev">
-            <i class="angle left icon"></i>
-            Go back
-          </div>
-          <div class="ui positive right labeled icon button">
-            Finish
-            <i class="checkmark icon"></i>
-          </div>
-        </div>
-      </div>
-
-      <div id="disclaimer" class="ui modal">
-        <i class="close icon"></i>
-        <div class="header">
-          Disclaimer
-        </div>
-        <div class="content">
-          <div class="description">
-            <div class="ui header">This web portal only lists the various Government orders/notifications/circulars/notices, issued by various State Govt.’s and Central Govt. issued from time to time in relation to COVID-19 and is hosted here only for purposes of general public awareness, information and research. The web portal does not undertake any responsibility of the correctness or truthfulness of the contents of these govt. orders. Visitors are advised to visit the respective official govt. department to verify the information provided in such orders/notifications/circulars/notices.</div>
-            <p></p>
-          </div>
-        </div>
-        <div class="actions">
-          <div class="ui positive right labeled icon button">
-            Okay
-            <i class="checkmark icon"></i>
-          </div>
-        </div>
-      </div>
-
-      <div class="footer-line">Made in collobration with <a href="https://twitter.com/StrandedWorkers" target="_blank">Stranded Workers Action Network (SWAN)</a> and <a href="https://twitter.com/COVIDIndiaTrack/" target="_blank">COVID-19 Government Order Track Team</a>. Website Maintained by <a href="https://github.com/DipeshAggarwal" target="_blank">Dipesh Aggarwal</a></div>
     </div>
 
     <div class="ui dimmer">
