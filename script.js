@@ -17,42 +17,49 @@ $('.language.dropdown')
       {
         name: 'English',
         value: 'english',
-        selected : true
+        selected: (window.location.href.includes("translate") == false) ? true : false
       },
       {
         name: 'हिंदी',
-        value: 'hindi'
+        value: 'hindi',
+        selected: (window.location.href.includes("hindi") == false) ? true : false
       },
       {
         name: 'বাংলা',
-        value: 'bengali'
+        value: 'bengali',
+        selected: (window.location.href.includes("bengali") == false) ? true : false
       },
       {
         name: 'ಕನ್ನಡ',
-        value: 'kannada'
+        value: 'kannada',
+        selected: (window.location.href.includes("kannada") == false) ? true : false
       },
       {
         name: 'മലയാളം',
-        value: 'malayalam'
+        value: 'malayalam',
+        selected: (window.location.href.includes("malayalam") == false) ? true : false
       },
       {
         name: 'मराठी',
-        value: 'marathi'
+        value: 'marathi',
+        selected: (window.location.href.includes("marathi") == false) ? true : false
       },
       {
         name: 'தமிழ்',
-        value: 'tamil'
+        value: 'tamil',
+        selected: (window.location.href.includes("tamil") == false) ? true : false
       },
       {
         name: 'తెలుగు',
-        value: 'telugu'
+        value: 'telugu',
+        selected: (window.location.href.includes("telugu") == false) ? true : false
       }
     ],
     action: function(text, value, element) {
       var v = $('.language.dropdown').dropdown('get value');
 
-      if (value === "english") {
-        return;
+      if (value === "english" && window.location.href.includes("mox") == true) {
+        window.open("https://migrants.covid-india.in/");
       }
       window.open("https://migrants.covid-india.in/translate#" + value);
     },
