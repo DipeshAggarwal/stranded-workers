@@ -11,18 +11,18 @@ $('.ui.sidebar').sidebar({
   transition: 'push'
 }).sidebar('attach events', '#mobile-item');
 
-$('.icon.item.dropdown')
+$('.language.dropdown')
   .dropdown({
     values: [
       {
         name: 'English',
         value: 'english',
         selected : true
-      }/*,
+      },
       {
-        name: 'Hindi',
+        name: 'हिंदी',
         value: 'hindi'
-      }*/
+      }
     ],
     onChange: function(value, text, $choice) {
       var v = $('.pointing.dropdown').dropdown('get value');
@@ -114,6 +114,9 @@ $(document).ready(function () {
 
   $.ajax({
     url: 'https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan',
+    headers: {
+        'Accept': '*/*'
+    }
   })
     .done(function(data) {
       columnNames = data.websiteData[0].splice(3);
