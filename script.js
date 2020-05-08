@@ -143,12 +143,17 @@ $(document).ready(function () {
     }
   })
     .done(function(data) {
+      console.log(data);
       columnNames = data.websiteData[0].splice(3);
       data.websiteData.reduce(function(s, x) {
         if (x[0] === "To") {
           toData[x[1]] = x.splice(3);
+          console.log("FROM");
+          console.log(toData);
         } else if (x[0] === "From") {
           fromData[x[1]] = x.splice(3);
+          console.log("TO");
+          console.log(fromData);
         }
       });
       isDataDownloaded = true;
