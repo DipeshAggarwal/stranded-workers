@@ -5,7 +5,6 @@ var autoShowCounter = 0;
 var columnNames = [];
 var fromData = {};
 var toData = {};
-var fullData = {};
 
 $('.ui.sidebar').sidebar({
   context: $('.ui.pushable.segment'),
@@ -144,18 +143,14 @@ $(document).ready(function () {
     }
   })
     .done(function(data) {
-      console.log(data);
-      fullData = data;
+      var _fromString = $("#from-string")[0].innerText;
+      var _toString = $("#to-string")[0].innerText;
       columnNames = data.websiteData[0].splice(3);
       data.websiteData.reduce(function(s, x) {
-        if (x[0] === "To") {
+        if (x[0] === _toString || x[0] === "To") {
           toData[x[1]] = x.splice(3);
-          console.log("FROM");
-          console.log(toData);
-        } else if (x[0] === "From") {
+        } else if (x[0] === _fromString || x[0] === "From") {
           fromData[x[1]] = x.splice(3);
-          console.log("TO");
-          console.log(fromData);
         }
       });
       isDataDownloaded = true;
