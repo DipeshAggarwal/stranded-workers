@@ -1,5 +1,7 @@
+const urlParams = new URLSearchParams(window.location.search);
 var isDataDownloaded = false;
 var isButtonClicked = false;
+var autoShowCounter = 0;
 var columnNames = [];
 var fromData = {};
 var toData = {};
@@ -24,9 +26,9 @@ $('.icon.item.dropdown')
     ],
     onChange: function(value, text, $choice) {
       var v = $('.pointing.dropdown').dropdown('get value');
-
-      console.log(v);
-    }
+      //console.log(v);
+    },
+    ignoreCase: true
   });
 
 $('.state.dropdown')
@@ -37,7 +39,7 @@ $('.state.dropdown')
       var _returnObj = [];
 
       stateList.forEach(function(ele) {
-        _returnObj.push({name: ele, value: ele.toLowerCase()})
+        _returnObj.push({name: ele, value: ele})
       });
 
       return _returnObj;
@@ -86,12 +88,25 @@ $('.ui.basic.modal')
   });
 
 $(document).ready(function () {
-  console.log("g");
+  for (var key of urlParams.keys()) {
+    if (key === "from") {
+      $("#from-detail.dropdown").dropdown('set selected', urlParams.get(key));
+      autoShowCounter++;
+    } else if (key === "to") {
+      $("#to-detail").dropdown('set selected', urlParams.get(key));
+      autoShowCounter++;
+    }
+  };
+
+  if (autoShowCounter === 2) {
+      isButtonClicked = true;
+      $(".ui.dimmer.loading").addClass("active");
+  };
+
   $.ajax({
     url: 'https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan',
   })
     .done(function(data) {
-      console.log("hey");
       columnNames = data.websiteData[0].splice(3);
       data.websiteData.reduce(function(s, x) {
         if (x[0] === "To") {
@@ -103,14 +118,21 @@ $(document).ready(function () {
       isDataDownloaded = true;
 
       if (isButtonClicked === true) {
+        isButtonClicked = false;
+        $(".ui.dimmer.loading").removeClass("active");
         showData();
       }
     })
 });
 
 function showData() {
-  var from = $("#from-dropdown.dropdown").dropdown("get text");
-  var to = $("#to-dropdown.dropdown").dropdown("get text");
+  if (autoShowCounter === 2) {
+    var from = urlParams.get("from");
+    var to = urlParams.get("to");
+  } else {
+    var from = $("#from-dropdown.dropdown").dropdown("get text");
+    var to = $("#to-dropdown.dropdown").dropdown("get text");
+  }
 
   if (fromData[from].every(function(e) {return e === ""}) || toData[to].every(function(e) {return e === ""})) {
     $(".ui.basic>.content")[0].innerText = $(".ui.basic>.content")[0].innerText.replace("##FROM", from).replace("##TO", to);
