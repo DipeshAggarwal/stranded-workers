@@ -22,6 +22,30 @@ $('.language.dropdown')
       {
         name: 'हिंदी',
         value: 'hindi'
+      },
+      {
+        name: 'বাংলা',
+        value: 'bengali'
+      },
+      {
+        name: 'ಕನ್ನಡ',
+        value: 'kannada'
+      },
+      {
+        name: 'മലയാളം',
+        value: 'malayalam'
+      },
+      {
+        name: 'मराठी',
+        value: 'marathi'
+      },
+      {
+        name: 'தமிழ்',
+        value: 'tamil'
+      },
+      {
+        name: 'తెలుగు',
+        value: 'telugu'
       }
     ],
     onChange: function(value, text, $choice) {
