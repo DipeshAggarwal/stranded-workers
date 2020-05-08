@@ -4,7 +4,32 @@ var columnNames = [];
 var fromData = {};
 var toData = {};
 
-$('.ui.dropdown')
+$('.ui.sidebar').sidebar({
+  context: $('.ui.pushable.segment'),
+  transition: 'overlay'
+}).sidebar('attach events', '#mobile-item');
+
+$('.icon.item.dropdown')
+  .dropdown({
+    values: [
+      {
+        name: 'English',
+        value: 'english',
+        selected : true
+      }/*,
+      {
+        name: 'Hindi',
+        value: 'hindi'
+      }*/
+    ],
+    onChange: function(value, text, $choice) {
+      var v = $('.pointing.dropdown').dropdown('get value');
+
+      console.log(v);
+    }
+  });
+
+$('.state.dropdown')
   .dropdown({
     placeholder:'State',
     values: function () {
@@ -18,7 +43,7 @@ $('.ui.dropdown')
       return _returnObj;
     }(),
     onChange: function(value, text, $choice) {
-      var v = $(".ui.dropdown").dropdown("get value");
+      var v = $(".state.dropdown").dropdown("get value");
 
       if (v.includes("")) {
         $('#find-btn').addClass("disabled");
@@ -41,24 +66,28 @@ $('.second.modal')
 $('.first.modal')
   .modal('attach events', '.second.modal .button.prev', 'show refresh');
 
+$('#disclaimer')
+  .modal('attach events', '.disclaimer-btn', 'show')
+;
+
 $('.ui.basic.modal')
   .modal({
     blurring: true
   });
 
-  $("#find-btn").click(function() {
+  $('find-btn').click(function() {
     if (isDataDownloaded === true) {
-      $('#find-btn').removeClass("loading");
+      $('#find-btn').removeClass('loading');
       showData();
     } else {
-      $('#find-btn').addClass("disabled loading");
+      $('#find-btn').addClass('disabled loading');
       isButtonClicked = true;
     }
   });
 
 $(document).ready(function () {
   $.ajax({
-    url: "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan",
+    url: 'https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan',
   })
     .done(function(data) {
       columnNames = data.websiteData[0].splice(3);
@@ -126,7 +155,6 @@ function showData() {
 }
 
 $(window).resize(function() {
-  console.log("resize");
   var footerTop = $(".footer-line").offset().top;
   var footerHeight = $(".footer-line").height();
   var findBtnTop = $("#find-btn").offset().top;

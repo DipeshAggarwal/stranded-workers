@@ -7,6 +7,28 @@ body {
   -webkit-animation: AnimationName 30s ease infinite;
   -moz-animation: AnimationName 30s ease infinite;
   animation: AnimationName 30s ease infinite;
+
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+}
+
+#content {
+  min-height: 100px;
+}
+
+.ui.grid{
+  padding: 0 !important;
+}
+
+.ui.menu {
+  background-color: #ffffff50;
+}
+
+.pushable.segment{
+  margin: 0!important;
+  background: none!important;
+  flex-grow: 1;
 }
 
 .heading {
@@ -38,7 +60,7 @@ body {
   width: 100%;
   margin: auto;
   text-align: center;
-  bottom: 2px;
+  bottom: 0px;
   padding-right: 10px;
   padding-left: 10px;
 }
@@ -159,7 +181,7 @@ td:nth-child(odd) {
     font-variant: small-caps;
     line-height: 1.2em;
     padding-bottom: 5%;
-    padding-top: 2%;
+    padding-top: 3%;
   }
 
   .sub-heading {
@@ -180,10 +202,10 @@ td:nth-child(odd) {
 
 @media (max-width: 812px) and (orientation: landscape) {
   .heading {
-    font-size: 5.5vw;
+    font-size: 5.4vw;
     font-variant: small-caps;
     line-height: 1.1em;
-    padding-top: 2%;
+    padding-top: 3%;
   }
 
   .sub-heading {
@@ -199,7 +221,7 @@ td:nth-child(odd) {
 
 @media (max-width: 765px) and (orientation: landscape) {
   .heading {
-    font-size: 6vw;
+    font-size: 5.5vw;
     font-variant: small-caps;
     line-height: 1.1em;
     padding-top: 2%;
