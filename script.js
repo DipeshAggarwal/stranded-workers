@@ -5,6 +5,7 @@ var autoShowCounter = 0;
 var columnNames = [];
 var fromData = {};
 var toData = {};
+var fullData = {};
 
 $('.ui.sidebar').sidebar({
   context: $('.ui.pushable.segment'),
@@ -144,6 +145,7 @@ $(document).ready(function () {
   })
     .done(function(data) {
       console.log(data);
+      fullData = data;
       columnNames = data.websiteData[0].splice(3);
       data.websiteData.reduce(function(s, x) {
         if (x[0] === "To") {
