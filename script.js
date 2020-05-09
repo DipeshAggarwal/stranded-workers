@@ -58,8 +58,7 @@ $('.language.dropdown')
       }
     ],
     action: function(text, value, element) {
-      var v = $('.language.dropdown').dropdown('get value');
-
+      console.log(value);
       if (value === "english") {
         window.location.href = "https://" + sub + "." + host + "." + "in/";
       }
