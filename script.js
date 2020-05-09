@@ -63,7 +63,7 @@ $('.language.dropdown')
       if (value === "english") {
         window.location.href = "https://" + sub + "." + host + "." + "in/";
       }
-      window.location.href = "https://" + sub + "." + host + "." + "in/" + value;
+      window.location.href = "https://" + sub + "." + host + "." + "in/translate#" + value;
     },
     ignoreCase: true
   });
@@ -150,7 +150,7 @@ $(document).ready(function () {
   };
 
   $.ajax({
-    url: getDataUrl(),
+    url: "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan",
     headers: {
         'Accept': '*/*'
     }
@@ -158,7 +158,6 @@ $(document).ready(function () {
     .done(function(data) {
       var _fromString = $("#from-string")[0].innerText;
       var _toString = $("#to-string")[0].innerText;
-      console.log(_fromString, _toString);
       columnNames = data.websiteData[0].splice(3);
       data.websiteData.reduce(function(s, x) {
         if (x[0] === _toString || x[0] === "To") {
@@ -198,7 +197,6 @@ function showData() {
     var to = $("#to-dropdown.dropdown").dropdown("get text");
   }
 
-  console.log(from, to);
   if (fromData[from].every(function(e) {return e === ""}) || toData[to].every(function(e) {return e === ""})) {
     $(".ui.basic>.content")[0].innerText = $(".ui.basic>.content")[0].innerText.replace("##FROM", from).replace("##TO", to);
     $(".ui.basic.modal")
