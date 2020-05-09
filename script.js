@@ -58,11 +58,16 @@ $('.language.dropdown')
       }
     ],
     action: function(text, value, element) {
-      console.log(value);
-      if (value === "english") {
+      /*if (value === "english") {
         window.location.href = "https://" + sub + "." + host + "." + "in/";
       }
-      window.location.href = "https://" + sub + "." + host + "." + "in/translate#" + value;
+      window.location.href = "https://" + sub + "." + host + "." + "in/translate#" + value;*/
+
+      if (value === "english") {
+        document.location.href = "/";
+      } else {
+        document.location.href = "/translate#" + value;
+      }
     },
     ignoreCase: true
   });
