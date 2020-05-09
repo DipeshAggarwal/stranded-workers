@@ -1,1 +1,1 @@
-https://hindi.migrants.covid-india.in/* https://migrants.covid-india.in/translate.html:splat#hindi 200
+https://migrants.covid-india.in/:lang https://:lang-migrants-covidindia.mox.net.in 200
