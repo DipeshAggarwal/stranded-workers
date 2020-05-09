@@ -19,42 +19,42 @@ $('.language.dropdown')
       {
         name: 'English',
         value: 'english',
-        selected: (window.location.href.includes("translate") == false) ? true : false
+        selected: (window.location.href.includes("translate") === false) ? true : false
       },
       {
         name: 'हिंदी',
         value: 'hindi',
-        selected: (window.location.href.includes("hindi") == true) ? true : false
+        selected: (window.location.href.includes("hindi") === true) ? true : false
       },
       {
         name: 'বাংলা',
         value: 'bengali',
-        selected: (window.location.href.includes("bengali") == true) ? true : false
+        selected: (window.location.href.includes("bengali") === true) ? true : false
       },
       {
         name: 'ಕನ್ನಡ',
         value: 'kannada',
-        selected: (window.location.href.includes("kannada") == true) ? true : false
+        selected: (window.location.href.includes("kannada") === true) ? true : false
       },
       {
         name: 'മലയാളം',
         value: 'malayalam',
-        selected: (window.location.href.includes("malayalam") == true) ? true : false
+        selected: (window.location.href.includes("malayalam") === true) ? true : false
       },
       {
         name: 'मराठी',
         value: 'marathi',
-        selected: (window.location.href.includes("marathi") == true) ? true : false
+        selected: (window.location.href.includes("marathi") === true) ? true : false
       },
       {
         name: 'தமிழ்',
         value: 'tamil',
-        selected: (window.location.href.includes("tamil") == true) ? true : false
+        selected: (window.location.href.includes("tamil") === true) ? true : false
       },
       {
         name: 'తెలుగు',
         value: 'telugu',
-        selected: (window.location.href.includes("telugu") == true) ? true : false
+        selected: (window.location.href.includes("telugu") === true) ? true : false
       }
     ],
     action: function(text, value, element) {
@@ -150,7 +150,7 @@ $(document).ready(function () {
   };
 
   $.ajax({
-    url: 'https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan',
+    url: getDataUrl(),
     headers: {
         'Accept': '*/*'
     }
@@ -175,6 +175,18 @@ $(document).ready(function () {
       }
     })
 });
+
+function getDataUrl() {
+  if (window.location.protocol === "file:") {
+    return "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan";
+  }
+  
+  if (window.location.pathname === "/") {
+    return "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan";
+  } else {
+    return "https://" + window.location.pathname.slice(1) + "-sg.mox.net.in/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan";
+  }
+}
 
 function showData() {
   if (autoShowCounter === 2) {
