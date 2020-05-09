@@ -204,12 +204,12 @@ function showData() {
     if (_fromText.startsWith("http") === true) {
       _fromText = '<span><a href=' + _fromText + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
     } else if (columnNames[i].includes("Helpline No.") === true) {
-      _fromText = _fromText.replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+      _fromText = _fromText.replace(new RegExp(" \\| ", 'g'), "<br />");
     }
     if (_toText.startsWith("http") === true) {
       _toText = '<span><a href=' + _toText + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
     } else if (columnNames[i].includes("Helpline No.") === true) {
-      var _toText = _toText.replace(" ", "<br />").replace(",", "<br />").replace("/", "<br />");
+      var _toText = _toText.replace(new RegExp(" \\| ", 'g'), "<br />");
     }
     fromFillText = fromFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _fromText + "</td></tr>";
     toFillText = toFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _toText + "</td></tr>";
