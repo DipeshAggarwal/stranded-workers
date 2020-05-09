@@ -197,17 +197,25 @@ function showData() {
 
   var fromFillText = "";
   var toFillText = "";
-  for (var i=0; i < columnNames.length; i++){
-    var _fromText = fromData[from][i].toString();
-    var _toText = toData[to][i].toString();
+  for (var i=0; i < columnNames.length; i++) {
+    var _fromText = fromData[from][i].toString().trim();
+    var _toText = toData[to][i].toString().trim();
 
     if (_fromText.startsWith("http") === true) {
-      _fromText = '<span><a href=' + _fromText + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
+      var multiUrls = _fromText.split("|");
+      _fromText = "";
+      for(var j=0; j < multiUrls.length; j++) {
+        _fromText = _fromText + '<a href="' + multiUrls[j].trim() + '" style="white-space:pre;" target="_blank">Click to open in new tab</a><br />';
+      }
     } else if (columnNames[i].includes("Helpline No.") === true) {
       _fromText = _fromText.replace(new RegExp(" \\| ", 'g'), "<br />");
     }
     if (_toText.startsWith("http") === true) {
-      _toText = '<span><a href=' + _toText + ' style="display:block ruby;white-space:pre;" target="_blank"><i class="linkify icon"</i> Click to open in new tab</a></span>';
+      var multiUrls = _toText.split("|");
+      _toText = "";
+      for(var j=0; j < multiUrls.length; j++) {
+        _toText = _toText + '<div><a href="' + multiUrls[j].trim() + '" style="white-space:pre;" target="_blank">Click to open in new tab</a></div>';
+      }
     } else if (columnNames[i].includes("Helpline No.") === true) {
       var _toText = _toText.replace(new RegExp(" \\| ", 'g'), "<br />");
     }
