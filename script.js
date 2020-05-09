@@ -66,7 +66,7 @@ $('.language.dropdown')
       console.log(value);
       if (value === "english") {
         console.log("english");
-        document.location.href = "/";
+        document.location.href = "https://" + sub + "." + host + "." + "in/";
       } else {
         document.location.href = "/translate#" + value;
         document.location.hash = value;
