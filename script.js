@@ -63,7 +63,7 @@ $('.language.dropdown')
       if (value === "english" && window.location.href.includes("mox") == true) {
         window.open("https://" + sub + "." + host + "." + "in/");
       }
-      window.open("https://" + sub + "." + host + "." + "in/translate#" + value);
+      window.open("https://" + sub + "." + host + "." + "in/" + value);
     },
     ignoreCase: true
   });
