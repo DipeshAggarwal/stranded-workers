@@ -76,8 +76,13 @@ tr:nth-child(even) {
   background-color: #ededed;
 }
 
+td:nth-child(even) {
+  width: 70%;
+}
+
 td:nth-child(odd) {
   padding-left: 10px!important;
+  width: 30%;
 }
 
 @-webkit-keyframes AnimationName {

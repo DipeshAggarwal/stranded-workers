@@ -103,14 +103,17 @@ $('.state.dropdown')
 
 $('.coupled.modal')
   .modal({
-    allowMultiple: false
+    allowMultiple: false,
+    centered: false
   });
 
 $('.second.modal')
-  .modal('attach events', '.first.modal .button.next', 'show refresh');
+  .modal('attach events', '.first.modal .button.next', 'show refresh')
+  .modal({centered: false});
 
 $('.first.modal')
-  .modal('attach events', '.second.modal .button.prev', 'show refresh');
+  .modal('attach events', '.second.modal .button.prev', 'show refresh')
+  .modal({centered: false});
 
 $('#disclaimer')
   .modal('attach events', '.disclaimer-btn', 'show');
@@ -236,6 +239,8 @@ function showData() {
   }
   $("#from-detail>.content>.description>table>tbody")[0].innerHTML = fromFillText;
   $("#to-detail>.content>.description>table>tbody")[0].innerHTML = toFillText;
+
+  $("#from-detail>.scrolling.content").css("overflow", "auto");
 
   $("#from-detail>.actions>.ui.black").click(function(e, t) {
     $("#from-detail.modal")

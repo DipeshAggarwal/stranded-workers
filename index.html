@@ -21,11 +21,6 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
     <script id="rel-abs" src="./script.js" defer></script>
-    <script>
-      if (window.location.protocol != "file:") {
-        $("#rel-abs")[0].src = "https://migrants.covid-india.in/script.js";
-      }
-    </script>
   </head>
 
   <body>
@@ -119,10 +114,9 @@
         </div>
 
         <div id="from-detail" class="ui modal longer scrolling first coupled">
-          <i class="close icon"></i>
           <div class="header"></div>
-          <div class="image scrolling content">
-            <div class="description" style="width:100%;">
+          <div class="scrolling content">
+            <div class="description">
               <table class="ui very basic collapsing celled table"><tbody></tbody></table>
             </div>
           </div>
@@ -140,7 +134,7 @@
         <div id="to-detail" class="ui modal longer scrolling second coupled">
           <i class="close icon"></i>
           <div class="header"></div>
-          <div class="image scrolling content">
+          <div class="scrolling content">
             <div class="description" style="width:100%;">
               <table class="ui very basic collapsing celled table"><tbody></tbody></table>
             </div>
