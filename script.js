@@ -63,10 +63,13 @@ $('.language.dropdown')
       }
       window.location.href = "https://" + sub + "." + host + "." + "in/translate#" + value;*/
 
+      console.log(value);
       if (value === "english") {
+        console.log("english");
         document.location.href = "/";
       } else {
         document.location.href = "/translate#" + value;
+        document.location.hash = value;
       }
     },
     ignoreCase: true
