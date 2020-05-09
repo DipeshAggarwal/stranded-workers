@@ -61,9 +61,9 @@ $('.language.dropdown')
       var v = $('.language.dropdown').dropdown('get value');
 
       if (value === "english" && window.location.href.includes("mox") == true) {
-        window.open("https://" + sub + "." + host + "." + "in/");
+        window.location.href = "https://" + sub + "." + host + "." + "in/";
       }
-      window.open("https://" + sub + "." + host + "." + "in/" + value);
+      window.location.href = "https://" + sub + "." + host + "." + "in/" + value;
     },
     ignoreCase: true
   });
