@@ -229,7 +229,10 @@ function showData() {
       }
     } else if (columnNames[i].includes("Helpline No.") === true) {
       _fromText = _fromText.replace(new RegExp(" \\| ", 'g'), "<br />");
+    } else {
+      _fromText = _fromText.replace(new RegExp("\n", 'g'), "<br />");
     }
+
     if (_toText.startsWith("http") === true) {
       var multiUrls = _toText.split("|");
       _toText = "";
@@ -237,8 +240,11 @@ function showData() {
         _toText = _toText + '<div><a href="' + multiUrls[j].trim() + '" style="white-space:pre;" target="_blank">Click to open in new tab</a></div>';
       }
     } else if (columnNames[i].includes("Helpline No.") === true) {
-      var _toText = _toText.replace(new RegExp(" \\| ", 'g'), "<br />");
+      _toText = _toText.replace(new RegExp(" \\| ", 'g'), "<br />");
+    } else {
+      _toText = _toText.replace(new RegExp("\n", 'g'), "<br />");
     }
+
     fromFillText = fromFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _fromText + "</td></tr>";
     toFillText = toFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _toText + "</td></tr>";
   }
