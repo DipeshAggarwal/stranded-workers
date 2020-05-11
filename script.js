@@ -300,7 +300,7 @@ function showData() {
 
 function copyLinkToClipboard(obj) {
   const el = document.createElement('textarea');
-  el.value = top.window.location.host + "?from=" + from + "&to=" + to;
+  el.value = top.window.location.host + "?from=" + from.replace(/ /g, "%20"); + "&to=" + to.replace(/ /g, "%20");;
   document.body.appendChild(el);
   el.select();
   document.execCommand('copy');
