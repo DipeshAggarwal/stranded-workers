@@ -7,6 +7,8 @@ var autoShowCounter = 0;
 var columnNames = [];
 var fromData = {};
 var toData = {};
+var from = "";
+var to = "";
 
 $('.ui.sidebar').sidebar({
   context: $('.ui.pushable.segment'),
@@ -228,11 +230,12 @@ function getDataUrl() {
 
 function showData() {
   if (autoShowCounter === 2) {
-    var from = urlParams.get("from");
-    var to = urlParams.get("to");
+    from = urlParams.get("from");
+    to = urlParams.get("to");
+    autoShowCounter = 0;
   } else {
-    var from = $("#from-dropdown.dropdown").dropdown("get text");
-    var to = $("#to-dropdown.dropdown").dropdown("get text");
+    from = $("#from-dropdown.dropdown").dropdown("get text");
+    to = $("#to-dropdown.dropdown").dropdown("get text");
   }
 
   if (fromData[from].every(function(e) {return e === ""}) || toData[to].every(function(e) {return e === ""})) {
@@ -242,7 +245,7 @@ function showData() {
     return;
   }
 
-  $("#from-detail>.header")[0].innerText = "From: " + from;
+  $("#from-detail>.header>span")[0].innerText = "From: " + from;
   $("#to-detail>.header")[0].innerText = "To: " + to;
 
   var fromFillText = "";
@@ -293,6 +296,24 @@ function showData() {
   })
   $("#from-detail.modal")
     .modal("show");
+}
+
+function copyLinkToClipboard(obj) {
+  const el = document.createElement('textarea');
+  el.value = top.window.location.host + "?from=" + from + "&to=" + to;
+  document.body.appendChild(el);
+  el.select();
+  document.execCommand('copy');
+  document.body.removeChild(el);
+  
+  $('body')
+  .toast({
+    class: 'success',
+    showIcon: 'copy',
+    message: 'Copied to Clipboard',
+    showProgress: 'bottom',
+    classProgress: 'white'
+  });
 }
 
 $(window).resize(function() {

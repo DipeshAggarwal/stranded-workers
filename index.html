@@ -17,11 +17,11 @@
 
     <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
     <link rel="shortcut icon" href="favicon.ico">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.4/dist/semantic.min.css">
     <link rel="stylesheet" href="./style.css">
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fomantic-ui@2.8.4/dist/semantic.min.js"></script>
     <script id="rel-abs" src="./script.js" defer></script>
   </head>
 
@@ -116,7 +116,12 @@
         </div>
 
         <div id="from-detail" class="ui modal longer scrolling first coupled">
-          <div class="header"></div>
+          <div class="header">
+            <span></span>
+            <span style="float:right;">
+              <a href="#" onClick="copyLinkToClipboard(this);"><i class="linkify icon"></i></a>
+            </span>
+          </div>
           <div class="scrolling content">
             <div class="description">
               <table class="ui very basic collapsing celled table"><tbody></tbody></table>
