@@ -184,6 +184,36 @@ $(document).ready(function () {
     })
 });
 
+convertLinks = input => {
+  let text = input;
+  const aLink = [];
+  const linksFound = text.match(/(?:www|https?)[^\s]+/g);
+
+  if (linksFound != null) {
+    for (let i = 0; i < linksFound.length; i++) {
+      let replace = linksFound[i];
+
+      if (!(linksFound[i].match(/(http(s?)):\/\//))) {
+        replace = 'http://' + linksFound[i];
+      }
+
+      let linkText = replace.split('/')[2];
+
+      if (linkText.substring(0, 3) == 'www') {
+          linkText = linkText.replace('www.', '');
+      }
+
+      aLink.push('<a href="' + replace + '" target="_blank">' + linkText + '</a>');
+      text = text.split(linksFound[i]).map(item => {
+          return aLink[i].includes('iframe') ? item.trim() : item;
+      }).join(aLink[i]);
+    }
+    return text;
+  } else {
+    return input;
+  }
+};
+
 function getDataUrl() {
   if (window.location.protocol === "file:") {
     return "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan";
@@ -230,7 +260,7 @@ function showData() {
     } else if (columnNames[i].includes("Helpline No.") === true) {
       _fromText = _fromText.replace(new RegExp(" \\| ", 'g'), "<br />");
     } else {
-      _fromText = _fromText.replace(new RegExp("\n", 'g'), "<br />");
+      _fromText = convertLinks(_fromText.replace(new RegExp("\n", 'g'), "<br />"));
     }
 
     if (_toText.startsWith("http") === true) {
@@ -242,7 +272,7 @@ function showData() {
     } else if (columnNames[i].includes("Helpline No.") === true) {
       _toText = _toText.replace(new RegExp(" \\| ", 'g'), "<br />");
     } else {
-      _toText = _toText.replace(new RegExp("\n", 'g'), "<br />");
+      _toText = convertLinks(_toText.replace(new RegExp("\n", 'g'), "<br />"));
     }
 
     fromFillText = fromFillText + "<tr><td>" + columnNames[i] + "</td><td>" + _fromText + "</td></tr>";
