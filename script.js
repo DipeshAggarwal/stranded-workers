@@ -128,6 +128,9 @@ $('#disclaimer')
 $('#contact-us')
   .modal('attach events', '.contact-btn', 'show');
 
+$('#swan-us')
+  .modal('attach events', '.swan-btn', 'show');
+
 $('.ui.basic.modal')
   .modal({
     blurring: true
