@@ -318,6 +318,12 @@ function copyLinkToClipboard(obj) {
   });
 }
 
+
+window.onhashchange = function() {
+  console.log("hey#2");
+  window.location.refresh();
+}
+
 $(window).resize(function() {
   var footerTop = $(".footer-line").offset().top;
   var footerHeight = $(".footer-line").height();
