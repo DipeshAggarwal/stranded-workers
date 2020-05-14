@@ -31,5 +31,9 @@
     var prefix = location.href.split("#")[1];
     document.title = title[prefix];
     document.getElementById('translate').src = "https://" + prefix + "-migrants-covidindia.mox.net.in" + window.location.search;
+
+    window.onhashchange = function() {
+      window.location.refresh();
+    }
   </script>
 </html>
