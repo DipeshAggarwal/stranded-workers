@@ -106,6 +106,7 @@ $('.state.dropdown')
       }
     }
   });
+$('.state.dropdown').dropdown('refresh');
 
 $('.coupled.modal')
   .modal({
