@@ -164,6 +164,8 @@ $(document).ready(function () {
 
   $.ajax({
     url: "https://script.google.com/macros/s/AKfycbyYzQboz1iAe326HtyxJWgcPlwyPe7wLpCrLIRuf-kJBur4rqw/exec?sheet=swan",
+    type: "GET",
+    dataType: "json",
     headers: {
         'Accept': '*/*'
     }
