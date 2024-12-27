@@ -1,6 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
 var sub = "migrants";
-var host = "covid-india";
+var host = "covidorders";
 var isDataDownloaded = false;
 var isButtonClicked = false;
 var autoShowCounter = 0;
@@ -163,7 +163,7 @@ $(document).ready(function () {
   };
 
   $.ajax({
-    url: "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan",
+    url: "https://script.google.com/macros/s/AKfycbyYzQboz1iAe326HtyxJWgcPlwyPe7wLpCrLIRuf-kJBur4rqw/exec?sheet=swan",
     headers: {
         'Accept': '*/*'
     }
@@ -221,13 +221,13 @@ convertLinks = input => {
 
 function getDataUrl() {
   if (window.location.protocol === "file:") {
-    return "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan";
+    return "https://script.google.com/macros/s/AKfycbyYzQboz1iAe326HtyxJWgcPlwyPe7wLpCrLIRuf-kJBur4rqw/exec?sheet=swan";
   }
 
   if (window.location.pathname === "/") {
-    return "https://script.google.com/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan";
+    return "https://script.google.com/macros/s/AKfycbyYzQboz1iAe326HtyxJWgcPlwyPe7wLpCrLIRuf-kJBur4rqw/exec?sheet=swan";
   } else {
-    return "https://" + window.location.pathname.slice(1) + "-sg.mox.net.in/macros/s/AKfycby7AOxVGZUKTBUgTtPO5TGnudMAEUx9IdXeWE1rjgwjeIDGhcc/exec?sheet=swan";
+    return "https://" + window.location.pathname.slice(1) + "-sg.mox.net.in/macros/s/AKfycbyYzQboz1iAe326HtyxJWgcPlwyPe7wLpCrLIRuf-kJBur4rqw/exec?sheet=swan";
   }
 }
 
